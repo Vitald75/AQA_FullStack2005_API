@@ -9,6 +9,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import lombok.experimental.UtilityClass;
 
+
 @UtilityClass
 public class SpecConfig {
 
