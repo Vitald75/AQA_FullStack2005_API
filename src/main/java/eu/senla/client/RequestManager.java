@@ -1,9 +1,12 @@
 package eu.senla.client;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import eu.senla.dto.AdminRequest;
+import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import lombok.experimental.UtilityClass;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static io.restassured.RestAssured.given;
 
@@ -32,7 +35,11 @@ public class RequestManager {
                                     ResponseSpecification responseSpecification,
                                     String path,
                                     AdminRequest request,
-                                    Class<T> clazz) {
+                                    Class<T> clazz) throws JsonProcessingException {
+
+//        ObjectMapper mapper = new ObjectMapper();
+//        String jsonBody = mapper.writeValueAsString(request);
+
         return
                 given()
                         .spec(requestSpecification)
