@@ -14,14 +14,14 @@ public class RequestManager {
                                    ResponseSpecification responseSpecification,
                                    String path,
                                    Class<T> clazz) {
-        Object obj;
+
         return
                 given()
                         .spec(requestSpecification)
                         .basePath(path)
-                        .when()
+                .when()
                         .get()
-                        .then()
+                .then()
                         .spec(responseSpecification)
                         .extract()
                         .as(clazz);
@@ -38,9 +38,9 @@ public class RequestManager {
                         .spec(requestSpecification)
                         .basePath(path)
                         .body(request)
-                        .when()
+                .when()
                         .post()
-                        .then()
+                .then()
                         .spec(responseSpecification)
                         .extract()
                         .as(clazz);

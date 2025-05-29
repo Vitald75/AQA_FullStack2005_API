@@ -8,14 +8,20 @@ import lombok.Getter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApplicationData {
 
-    private Integer applicantid;
+    @JsonProperty("applicantid")
+    private Integer applicantId;
     @JsonProperty("applicationid")
     private Integer applicationId;
     private String channel;
-    private Integer citizenid;
+    @JsonProperty("citizenid")
+    private Integer citizenId;
+    @JsonProperty("dateOfApplication")
     private String dateofapplication;
     private String image;
+    @JsonProperty("kindOfApplication")
     private String kindofapplication;
+    @JsonProperty("staffId")
     private Integer staffid;
+    @JsonProperty("statusOfApplication")
     private String statusofapplication;
 }

@@ -14,9 +14,10 @@ import lombok.experimental.UtilityClass;
 public class SpecConfig {
 
     public static RequestSpecification requestSpecification() {
-        return new RequestSpecBuilder()
-                .setBaseUri("https://regoffice.senla.eu")
-                .setAuth(RestAssured.basic("user", "senlatest"))
+        return new RequestSpecBuilder().setBaseUri("https://regoffice.senla.eu")
+                .setBaseUri(eu.senla.core.ReadPropertiesFile.getProperty("MAIN_URI"))
+                .setAuth(RestAssured.basic(eu.senla.core.ReadPropertiesFile.getProperty("USERNAME"),
+                        eu.senla.core.ReadPropertiesFile.getProperty("PASSWORD")))
                 .setContentType(ContentType.JSON)
                 .log(LogDetail.ALL)
                 .build();
