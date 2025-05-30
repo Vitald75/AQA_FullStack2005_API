@@ -5,8 +5,6 @@ import lombok.Getter;
 
 @Getter
 public class AdminResponseData {
-
     @JsonProperty("staffid")
     private Integer staffId;
-
 }
