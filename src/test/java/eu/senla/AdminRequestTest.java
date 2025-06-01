@@ -2,12 +2,11 @@ package eu.senla;
 
 import eu.senla.client.RequestManager;
 import eu.senla.client.SpecConfig;
-import eu.senla.dto.AdminRequest;
-import eu.senla.dto.PostAdminResponse;
+import eu.senla.dto.adminRequest.AdminRequest;
+import eu.senla.dto.adminRequest.PostAdminResponse;
 import lombok.SneakyThrows;
 import net.datafaker.Faker;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.ZoneId;
@@ -17,7 +16,7 @@ public class AdminRequestTest {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     AdminRequest request;
 
-    @BeforeTest
+    //@BeforeTest
     public void setup() {
         Faker faker = new Faker();
         request = new AdminRequest(
@@ -30,18 +29,13 @@ public class AdminRequestTest {
                 //LocalDate.now().toString()
                 //"2020-01-01"
         );
-        System.out.println("Request " + request);
-
-//        ObjectMapper mapper = new JsonMapper();
-//        String jsonBody = mapper.writeValueAsString(request);
-//        System.out.println("Request " + jsonBody);
+        //System.out.println("Request " + request);
 
     }
 
     @SneakyThrows
-    @Test
-    void sendAdminRequestTest() {
-
+    PostAdminResponse sendAdminRequest() {
+        setup();
         PostAdminResponse response = RequestManager.postRequest(
                 SpecConfig.requestSpecification(),
                 SpecConfig.responseSpecification(),
@@ -49,32 +43,14 @@ public class AdminRequestTest {
                 request,
                 PostAdminResponse.class);
 
-//        PostAdminResponse response =
-//                given()
-//                    .auth()
-//                    .basic(eu.senla.core.ReadPropertiesFile.getProperty("USERNAME"),
-//                                eu.senla.core.ReadPropertiesFile.getProperty("PASSWORD"))
-//                    .contentType(ContentType.JSON)
-//                    .body(request)// Automatic JSON serialization
-//                        .log().all()
-//                .when()
-//                    .post(eu.senla.core.ReadPropertiesFile.getProperty("MAIN_URI") + "/sendAdminRequest")
-//                .then()
-//                        .log().all()
-//                        .statusCode(200)
-//                .contentType(ContentType.JSON)
-//                .extract().as(PostAdminResponse.class);
+        return response;
+    }
 
+    @SneakyThrows
+    @Test
+    void sendAdminRequestTest() {
 
-
-      //  System.out.println("Request " + request);
-
-        //System.out.println(response);
-        // System.out.println(response.getRequestId());
-        // System.out.println(response.getData().getFirst().getStaffId());
-
-
+        PostAdminResponse response = sendAdminRequest();
         Assert.assertNotNull(response.getRequestId());
-
     }
 }

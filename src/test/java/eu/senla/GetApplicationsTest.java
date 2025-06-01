@@ -2,7 +2,7 @@ package eu.senla;
 
 import eu.senla.client.RequestManager;
 import eu.senla.client.SpecConfig;
-import eu.senla.dto.GetApplicationsResponse;
+import eu.senla.dto.getApplStatus.GetApplicationsResponse;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

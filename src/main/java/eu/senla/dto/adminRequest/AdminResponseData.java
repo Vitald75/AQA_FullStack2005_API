@@ -1,4 +1,4 @@
-package eu.senla.dto;
+package eu.senla.dto.adminRequest;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

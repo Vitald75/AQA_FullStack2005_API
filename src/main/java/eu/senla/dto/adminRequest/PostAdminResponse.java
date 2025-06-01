@@ -1,10 +1,9 @@
-package eu.senla.dto;
+package eu.senla.dto.adminRequest;
 
 import lombok.Getter;
 
 @Getter
 public class PostAdminResponse {
-    //private List<AdminResponseData> data;
     private AdminResponseData data;
     private String requestId;
 }

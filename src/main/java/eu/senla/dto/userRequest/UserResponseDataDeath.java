@@ -1,15 +1,16 @@
-package eu.senla.dto;
+package eu.senla.dto.userRequest;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
-public class UserResponseData {
+@Getter
+public class UserResponseDataDeath {
     @JsonProperty("applicantid")
     private Integer applicantId;
     @JsonProperty("citizenid")
     private Integer citizenId;
     @JsonProperty("applicationid")
     private Integer applicationId;
-    @JsonProperty("merrigecertificateid")
-    private Integer merrigeCertificateId;
-
+    @JsonProperty("deathcertificateid")
+    private Integer deathCertificateId;
 }

@@ -1,5 +1,6 @@
-package eu.senla.dto;
+package eu.senla.dto.getApplStatus;
 
+import eu.senla.dto.ApplicationData;
 import lombok.Getter;
 
 import java.util.List;
