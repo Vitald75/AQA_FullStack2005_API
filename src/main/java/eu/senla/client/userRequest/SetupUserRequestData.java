@@ -1,5 +1,6 @@
-package eu.senla.dto.userRequest;
+package eu.senla.client.userRequest;
 
+import eu.senla.dto.userRequest.UserRequest;
 import net.datafaker.Faker;
 
 import java.time.ZoneId;

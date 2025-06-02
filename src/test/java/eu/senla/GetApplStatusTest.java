@@ -4,7 +4,7 @@ import eu.senla.client.RequestManager;
 import eu.senla.client.SpecConfig;
 import eu.senla.dto.getApplStatus.GetApplStatusResponse;
 import eu.senla.dto.userRequest.PostUserResponseWedding;
-import eu.senla.dto.userRequest.SetupUserRequestData;
+import eu.senla.client.userRequest.SetupUserRequestData;
 import eu.senla.dto.userRequest.UserRequest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class GetApplStatusTest {
     UserRequest request;
 
-    @Test
+    @Test (groups = {"user", "smoke"})
     public void getAppStatus() {
 
         request = SetupUserRequestData.createUserRequest("wedding");
@@ -30,6 +30,6 @@ public class GetApplStatusTest {
 
         Assert.assertNotNull(response.getRequestId());
         //Assert.assertEquals(response.getData().getKindOfApplication(),"Получение свидетельства о браке");
-        //issue with encoding
+        //temporary issue with encoding
     }
 }
