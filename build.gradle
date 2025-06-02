@@ -4,8 +4,11 @@ plugins {
 }
 
 checkstyle {
-//    toolVersion = "10.12.4"
+    toolVersion = "10.12.4"
+    //configFile = rootProject.file('config/checkstyle/checkstyle.xml')
     configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+
+
 }
 
 group = 'eu.senla'

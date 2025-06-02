@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 public final class SetupUserRequestData {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    public static UserRequest request;
+    private static UserRequest request;
 
     public static UserRequest createUserRequest(String mode) {
         Faker faker = new Faker();

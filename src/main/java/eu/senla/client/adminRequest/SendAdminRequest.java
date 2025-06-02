@@ -7,7 +7,7 @@ import eu.senla.dto.adminRequest.PostAdminResponse;
 
 public class SendAdminRequest {
     // @SneakyThrows
-    public PostAdminResponse sendAdminRequest(AdminRequest request) {
+    public final PostAdminResponse sendAdminRequest(AdminRequest request) {
 
         PostAdminResponse response = RequestManager.postRequest(
                 SpecConfig.requestSpecification(),

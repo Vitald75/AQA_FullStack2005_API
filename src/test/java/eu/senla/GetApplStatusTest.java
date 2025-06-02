@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class GetApplStatusTest {
-    UserRequest request;
+    private UserRequest request;
 
     @Test (groups = {"user", "smoke"})
     public void getAppStatus() {

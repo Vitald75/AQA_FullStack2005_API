@@ -9,61 +9,61 @@ import lombok.Setter;
 @Setter
 public class UserRequest {
     @JsonProperty("mode")
-    String mode;
+    private String mode;
     @JsonProperty("personalFirstName")
-    String personalFirstName;
+    private String personalFirstName;
     @JsonProperty("personalLastName")
-    String personalLastName;
+    private String personalLastName;
     @JsonProperty("personalMiddleName")
-    String personalMiddleName;
+    private String personalMiddleName;
     @JsonProperty("personalNumberOfPassport")
-    String personalNumberOfPassport;
+    private String personalNumberOfPassport;
     @JsonProperty("personalPhoneNumber")
-    String personalPhoneNumber;
+    private String personalPhoneNumber;
     @JsonProperty("personalAddress")
-    String personalAddress;
+    private String personalAddress;
     @JsonProperty("anotherPersonFirstName")
-    String anotherPersonFirstName;
+    private String anotherPersonFirstName;
     @JsonProperty("anotherPersonLastName")
-    String anotherPersonLastName;
+    private String anotherPersonLastName;
     @JsonProperty("anotherPersonMiddleName")
-    String anotherPersonMiddleName;
+    private String anotherPersonMiddleName;
     @JsonProperty("anotherPersonPassport")
-    String anotherPersonPassport;
+    private String anotherPersonPassport;
     @JsonProperty("birth_of_anotoherPerson")
-    String birthOfAnotherPerson;
+    private String birthOfAnotherPerson;
     @JsonProperty("birth_place")
-    String birthPlace;
+    private String birthPlace;
     @JsonProperty("birth_father")
-    String birthFather;
+    private String birthFather;
     @JsonProperty("birth_mother")
-    String birthMother;
+    private String birthMother;
     @JsonProperty("birth_grandpa")
-    String birthGrandpa;
+    private String birthGrandpa;
     @JsonProperty("birth_grandma")
-    String birthGrandma;
+    private String birthGrandma;
     @JsonProperty("newLastName")
-    String newLastName;
+    private String newLastName;
     @JsonProperty("citizenFirstName")
-    String citizenFirstName;
+    private String citizenFirstName;
     @JsonProperty("citizenLastName")
-    String citizenLastName;
+    private String citizenLastName;
     @JsonProperty("citizenMiddleName")
-    String citizenMiddleName;
+    private String citizenMiddleName;
     @JsonProperty("citizenBirthDate")
-    String citizenBirthDate;
+    private String citizenBirthDate;
     @JsonProperty("citizenNumberOfPassport")
-    String citizenNumberOfPassport;
+    private String citizenNumberOfPassport;
     @JsonProperty("citizenGender")
-    String citizenGender;
+    private String citizenGender;
     @JsonProperty("citizenAddress")
-    String citizenAddress;
+    private String citizenAddress;
     @JsonProperty("dateOfMarriage")
-    String dateOfMarriage;
+    private String dateOfMarriage;
     @JsonProperty("death_dateOfDeath")
-    String deathDateOfDeath;
+    private String deathDateOfDeath;
     @JsonProperty("death_placeOfDeath")
-    String deathPlaceOfDeath;
+    private String deathPlaceOfDeath;
 }
 
 

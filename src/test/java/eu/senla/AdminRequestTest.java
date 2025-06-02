@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class AdminRequestTest extends SendAdminRequest {
 
-    AdminRequest request;
+    private AdminRequest request;
 
     @Test (groups = {"admin", "smoke"})
     void sendAdminRequestTest() {

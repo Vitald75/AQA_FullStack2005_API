@@ -8,7 +8,7 @@ import lombok.SneakyThrows;
 public class SendUserRequest {
 
     @SneakyThrows
-    public <T> T sendUserRequest(UserRequest request, Class<T> clazz) {
+    public final <T> T sendUserRequest(UserRequest request, Class<T> clazz) {
         //request.setMode("death");
         T response = RequestManager.postRequest(
                 SpecConfig.requestSpecification(),

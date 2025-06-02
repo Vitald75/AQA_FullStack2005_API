@@ -1,6 +1,7 @@
 package eu.senla;
 
-import eu.senla.client.*;
+import eu.senla.client.RequestManager;
+import eu.senla.client.SpecConfig;
 import eu.senla.client.adminRequest.SendAdminRequest;
 import eu.senla.client.adminRequest.SetupAdminRequestData;
 import eu.senla.client.userRequest.SendUserRequest;
@@ -15,10 +16,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class RequestProcessTest {
-    UserRequest requestUserBody;
-    AdminRequest requestAdminBody;
+    private UserRequest requestUserBody;
+    private AdminRequest requestAdminBody;
 
-    @Test (groups = {"admin", "smoke"})
+    @Test (groups = { "admin", "smoke" })
     public void requestProcess() {
 
         //send User request
@@ -31,9 +32,9 @@ public class RequestProcessTest {
         requestAdminBody = SetupAdminRequestData.createAdminRequestData();
         SendAdminRequest adminRequest = new SendAdminRequest();
         PostAdminResponse adminResponse = adminRequest.sendAdminRequest(requestAdminBody);
-        int staffId =adminResponse.getData().getStaffId();
+        int staffId = adminResponse.getData().getStaffId();
 
-        RequestProcess requestProcessBody = new RequestProcess(applicationId,staffId,"approved");
+        RequestProcess requestProcessBody = new RequestProcess(applicationId, staffId, "approved");
 
         PostRequestProcessResponse response = RequestManager.postRequest(
                 SpecConfig.requestSpecification(),
@@ -44,6 +45,6 @@ public class RequestProcessTest {
 
         Assert.assertNotNull(response.getRequestId());
         //Assert.assertEquals(response.getData().getKindOfApplication(),"Получение свидетельства о браке");
-        Assert.assertEquals(response.getData().getStatusOfApplication(),"approved");
+        Assert.assertEquals(response.getData().getStatusOfApplication(), "approved");
     }
 }
