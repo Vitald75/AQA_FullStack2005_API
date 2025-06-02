@@ -4,7 +4,6 @@ import eu.senla.client.RequestManager;
 import eu.senla.client.SpecConfig;
 import eu.senla.dto.adminRequest.AdminRequest;
 import eu.senla.dto.adminRequest.PostAdminResponse;
-import lombok.SneakyThrows;
 import net.datafaker.Faker;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,7 +16,7 @@ public class AdminRequestTest {
     AdminRequest request;
 
     //@BeforeTest
-    public void setup() {
+    public void setupAdminRequestData() {
         Faker faker = new Faker();
         request = new AdminRequest(
                 faker.name().firstName(),
@@ -26,16 +25,15 @@ public class AdminRequestTest {
                 faker.number().digits(7),
                 faker.number().digits(8),
                 faker.date().birthday(18, 99).toInstant().atZone(ZoneId.systemDefault()).toLocalDate().format(DATE_FORMATTER)
-                //LocalDate.now().toString()
-                //"2020-01-01"
         );
         //System.out.println("Request " + request);
 
     }
 
-    @SneakyThrows
+   // @SneakyThrows
     PostAdminResponse sendAdminRequest() {
-        setup();
+
+        setupAdminRequestData();
         PostAdminResponse response = RequestManager.postRequest(
                 SpecConfig.requestSpecification(),
                 SpecConfig.responseSpecification(),
@@ -46,7 +44,7 @@ public class AdminRequestTest {
         return response;
     }
 
-    @SneakyThrows
+  //  @SneakyThrows
     @Test
     void sendAdminRequestTest() {
 
