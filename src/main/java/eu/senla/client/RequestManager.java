@@ -18,9 +18,9 @@ public class RequestManager {
                 given()
                         .spec(requestSpecification)
                         .basePath(path)
-                        .when()
+                .when()
                         .get()
-                        .then()
+                .then()
                         .spec(responseSpecification)
                         .extract()
                         .as(clazz);
@@ -34,28 +34,14 @@ public class RequestManager {
                                     R request,
                                     Class<T> clazz) {
 
-//        ObjectMapper mapper = new ObjectMapper();
-//        String jsonBody = mapper.writeValueAsString(request);
-
-//        Faker faker = new Faker();
-//        AdminRequest request = new AdminRequest(
-//                faker.name().firstName(),
-//                faker.name().lastName(),
-//                faker.funnyName().name(),
-//                faker.number().digits(7),
-//                faker.number().digits(8),
-//                LocalDate.now().toString()
-//                //"2020-01-01"
-//        );
-
         return
                 given()
                         .spec(requestSpecification)
                         .basePath(path)
                         .body(request)
-                        .when()
+                .when()
                         .post()
-                        .then()
+                .then()
                         .spec(responseSpecification)
                         .extract()
                         .as(clazz);

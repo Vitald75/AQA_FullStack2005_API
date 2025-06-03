@@ -1,5 +1,6 @@
-package eu.senla.dto.userRequest;
+package eu.senla.client.userRequest;
 
+import eu.senla.dto.userRequest.UserRequest;
 import net.datafaker.Faker;
 
 import java.time.ZoneId;
@@ -7,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 public final class SetupUserRequestData {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    public static UserRequest request;
+    private static UserRequest request;
 
     public static UserRequest createUserRequest(String mode) {
         Faker faker = new Faker();

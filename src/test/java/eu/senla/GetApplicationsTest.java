@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class GetApplicationsTest {
 
-    @Test
+    @Test (groups = {"admin", "smoke"})
     public void getApplications() {
         GetApplicationsResponse response = RequestManager
                 .getRequest(SpecConfig.requestSpecification(),
