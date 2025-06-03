@@ -17,7 +17,5 @@ public class GetApplicationsTest {
                 GetApplicationsResponse.class);
 
         Assert.assertNotNull(response.getTotal());
-        //Assert.assertEquals(Integer.parseInt(response.getTotal()), 122);
-
     }
 }
