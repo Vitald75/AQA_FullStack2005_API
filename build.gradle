@@ -54,7 +54,6 @@ test {
         if (project.hasProperty('excludedGroups')) {
             excludeGroups project.property('excludedGroups')
         }
-
     }
 
 }

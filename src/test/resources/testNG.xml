@@ -8,6 +8,7 @@
                 <include name="user"/>
                 <include name="admin"/>
                 <include name="smoke"/>
+                <include name="database"/>
             </run>
         </groups>
         <classes>
@@ -16,6 +17,7 @@
             <class name="eu.senla.AdminRequestTest"></class>
             <class name="eu.senla.GetApplStatusTest"></class>
             <class name="eu.senla.RequestProcessTest"></class>
+            <class name="eu.senla.DatabaseConnectionsTest"></class>
         </classes>
     </test>
 </suite>
