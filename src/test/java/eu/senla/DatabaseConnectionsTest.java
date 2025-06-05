@@ -7,25 +7,20 @@ import eu.senla.dto.adminRequest.AdminRequest;
 import eu.senla.dto.adminRequest.PostAdminResponse;
 import eu.senla.dto.userRequest.PostUserResponseBirth;
 import eu.senla.dto.userRequest.UserRequest;
-import org.postgresql.jdbc3.Jdbc3ConnectionPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Connection;
+import java.sql.*;
 
 import static eu.senla.client.adminRequest.SendAdminRequest.sendAdminRequest;
 
 public class DatabaseConnectionsTest {
-    private static final String DBURL = eu.senla.core.ReadPropertiesFile.getProperty("DBURL");
-    private static final String USER = eu.senla.core.ReadPropertiesFile.getProperty("DBUSERNAME");
-    private static final String PASSWORD = eu.senla.core.ReadPropertiesFile.getProperty("DBPASSWORD");
-    private static final Logger LOG = LoggerFactory.getLogger(Jdbc3ConnectionPool.class);
+    private static final String DBURL = eu.senla.core.ReadPropertiesFile.getProperty("DB_URL");
+    private static final String USER = eu.senla.core.ReadPropertiesFile.getProperty("DB_USERNAME");
+    private static final String PASSWORD = eu.senla.core.ReadPropertiesFile.getProperty("DB_PASSWORD");
+    private static final Logger LOG = LoggerFactory.getLogger(DatabaseConnectionsTest.class);
 
     private static Connection connection = null;
     private static PreparedStatement pstmt = null;
@@ -43,9 +38,8 @@ public class DatabaseConnectionsTest {
     }
 
     @Test(groups = {"database", "smoke"})
-    public static void applicationPostedTest() {
+    public static void applicationPostedTest() throws SQLException {
 
-        try {
             UserRequest request = SetupUserRequestData.createUserRequest("birth");
             SendUserRequest postRequest = new SendUserRequestTest();
             PostUserResponseBirth postResponse = postRequest.sendUserRequest(request, PostUserResponseBirth.class);
@@ -71,7 +65,6 @@ public class DatabaseConnectionsTest {
                         "Appl ID: " + resultSet.getInt("applicationid")
                         + ", Type of appl: "  + resultSet.getString("kindofapplication")
                         + ", Status: " + resultSet.getString("statusofapplication"));
-
                 applicationIdFromDB = resultSet.getInt("applicationid");
                 applicantIdFromDB = resultSet.getInt("applicantid");
                 lastNameFromDB = resultSet.getString("surname");
@@ -79,24 +72,18 @@ public class DatabaseConnectionsTest {
             }
 
             SoftAssert softAssertApplication = new SoftAssert();
-
             softAssertApplication.assertEquals(applicationId, applicationIdFromDB);
             softAssertApplication.assertEquals(applicantIdFromDB, applicantId);
             softAssertApplication.assertEquals(lastNameFromDB, lastName);
             softAssertApplication.assertEquals(firstNameFromDB, firstName);
-
             softAssertApplication.assertAll("Application or applicants record doesn't match");
 
             connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Test(groups = {"database", "smoke"})
-    public static void adminRequestPostedTest() {
+    public static void adminRequestPostedTest() throws  SQLException{
 
-        try {
             AdminRequest request = SetupAdminRequestData.createAdminRequestData();
             String lastName  = request.personalLastName();
             String passport = request.personalNumberOfPassport();
@@ -124,7 +111,7 @@ public class DatabaseConnectionsTest {
                 passportNumberFromDB = resultSet.getString("passportnumber");
             }
 
-            Assert.assertEquals(staffId, staffIdFromDB);
+            //Assert.assertEquals(staffId, staffIdFromDB);
             SoftAssert softAssert = new SoftAssert();
             softAssert.assertEquals(staffIdFromDB, staffId, "StaffId doesn't match");
             softAssert.assertEquals(surnameFromDB, lastName, "Lastname doesn't match");
@@ -132,10 +119,6 @@ public class DatabaseConnectionsTest {
             softAssert.assertAll("Check for admin record in DB");
 
             connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         }
 
 }
