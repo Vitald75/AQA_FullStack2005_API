@@ -7,12 +7,12 @@ import eu.senla.dto.adminRequest.PostAdminResponse;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AdminRequestTest extends SendAdminRequest {
+public final class AdminRequestTest extends SendAdminRequest {
 
-    private AdminRequest request;
+    private static AdminRequest request;
 
     @Test (groups = {"admin", "smoke"})
-    void sendAdminRequestTest() {
+    static void sendAdminRequestTest() {
 
         request = SetupAdminRequestData.createAdminRequestData();
         PostAdminResponse response = sendAdminRequest(request);

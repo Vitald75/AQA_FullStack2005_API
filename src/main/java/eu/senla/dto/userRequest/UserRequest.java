@@ -3,10 +3,10 @@ package eu.senla.dto.userRequest;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
 @AllArgsConstructor
-@Setter
+@Data
 public class UserRequest {
     @JsonProperty("mode")
     private String mode;

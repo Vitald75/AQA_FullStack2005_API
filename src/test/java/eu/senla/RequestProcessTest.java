@@ -34,7 +34,7 @@ public class RequestProcessTest {
         PostAdminResponse adminResponse = adminRequest.sendAdminRequest(requestAdminBody);
         int staffId = adminResponse.getData().getStaffId();
 
-        RequestProcess requestProcessBody = new RequestProcess(applicationId, staffId, "approved");
+        RequestProcess requestProcessBody = new RequestProcess(applicationId, staffId, "rejected");
 
         PostRequestProcessResponse response = RequestManager.postRequest(
                 SpecConfig.requestSpecification(),
@@ -45,6 +45,7 @@ public class RequestProcessTest {
 
         Assert.assertNotNull(response.getRequestId());
         //Assert.assertEquals(response.getData().getKindOfApplication(),"Получение свидетельства о браке");
-        Assert.assertEquals(response.getData().getStatusOfApplication(), "approved");
+        Assert.assertEquals(response.getData().getStatusOfApplication(), "rejected");
+        Assert.assertEquals(response.getData().getApplicationId(), applicationId);
     }
 }

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="smoke test" configfailurepolicy="continue" parallel="methods" thread-count="2" verbose="1">
+<suite name="smoke test" configfailurepolicy="continue" parallel="methods" thread-count="1" verbose="1">
     <test name="smoke test">
         <groups>
             <run>
                 <include name="user"/>
                 <include name="admin"/>
                 <include name="smoke"/>
+                <include name="database"/>
             </run>
         </groups>
         <classes>
@@ -16,6 +17,7 @@
             <class name="eu.senla.AdminRequestTest"></class>
             <class name="eu.senla.GetApplStatusTest"></class>
             <class name="eu.senla.RequestProcessTest"></class>
+            <class name="eu.senla.DatabaseConnectionsTest"></class>
         </classes>
     </test>
 </suite>

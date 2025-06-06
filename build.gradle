@@ -19,8 +19,8 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
     annotationProcessor 'org.projectlombok:lombok:1.18.38'
+    implementation 'org.postgresql:postgresql:42.7.6'
     implementation 'io.rest-assured:rest-assured:5.5.3'
     implementation 'io.rest-assured:json-path:5.5.3'
     implementation 'io.rest-assured:xml-path:5.5.3'
@@ -31,13 +31,10 @@ dependencies {
     implementation 'org.apache.maven.plugins:maven-surefire-plugin:3.5.3'
     implementation 'com.diffplug.spotless:spotless-plugin-gradle:7.0.3'
     implementation 'net.datafaker:datafaker:2.4.3'
-    //checkstyle "com.puppycrawl.tools:checkstyle:${checkstyle.toolVersion}"
-    //checkstyle "group:artifact:version"
     implementation 'com.puppycrawl.tools:checkstyle:10.24.0'
     testImplementation 'com.puppycrawl.tools:checkstyle:10.24.0'
     compileOnly 'com.puppycrawl.tools:checkstyle:10.24.0'
     runtimeOnly 'com.puppycrawl.tools:checkstyle:10.24.0'
-
 }
 
 
@@ -57,7 +54,6 @@ test {
         if (project.hasProperty('excludedGroups')) {
             excludeGroups project.property('excludedGroups')
         }
-
     }
 
 }
