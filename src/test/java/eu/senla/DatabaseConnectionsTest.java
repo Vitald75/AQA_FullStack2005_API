@@ -1,6 +1,6 @@
 package eu.senla;
 
-import eu.senla.client.SelectFromDB;
+import eu.senla.client.database.SelectFromDB;
 import eu.senla.client.adminRequest.SendAdminRequest;
 import eu.senla.client.adminRequest.SetupAdminRequestData;
 import eu.senla.client.userRequest.SendUserRequest;

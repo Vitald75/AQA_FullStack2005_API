@@ -1,4 +1,4 @@
-package eu.senla.client;
+package eu.senla.client.database;
 
 import eu.senla.dto.dbResponse.AdminRequestDataFromDB;
 import eu.senla.dto.dbResponse.UserRequestDataFromDB;
