@@ -1,12 +1,16 @@
 Запуск тестов через командную строку
-Запуск всех тестов
+
+Запуск всех тестов: 
 .\gradlew clean test
 
-Запуск смок тестов 
+Запуск смок тестов: 
 .\gradlew clean test -Pgroups=smoke
 
-Запуск тестов по пользователю User
+Запуск тестов по пользователю User: 
 .\gradlew clean test -Pgroups=user
 
-Запуск тестов по пользователю Admin
+Запуск тестов по пользователю Admin: 
 .\gradlew clean test -Pgroups=admin
+
+Запуск тестов по базе данных: 
+.\gradlew clean test -Pgroups=database
