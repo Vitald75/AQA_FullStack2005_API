@@ -14,6 +14,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.sql.*;
 
+
 import static eu.senla.client.adminRequest.SendAdminRequest.sendAdminRequest;
 
 public class DatabaseConnectionsTest {
